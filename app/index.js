@@ -13,13 +13,11 @@ var ReactDOM = require('react-dom');
 
 const SiteList = React.createClass({
   render: function () {
-    console.log('this.props.site_list: ', this.props.site_list)
     const list = this.props.site_list.map(site => {
       return (
         <li><SiteCard data={site} /></li>
       )
     })
-    // debugger;
     return (
       <ul>
         {list}
