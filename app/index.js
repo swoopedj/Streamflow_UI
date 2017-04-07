@@ -1,6 +1,8 @@
 import Avatar from './avatar.js';
+import SiteData from './models/site_data.js';
+import SiteCard from './site_card.js';
 
-var USER_DATA = {
+var AvatarData = {
 	name: "Dylan SHWOOPS",
 	username: "dylanshwerps",
 	image: "http://www.absoluteanime.com/neon_genesis_evangelion/misato.jpg"
@@ -9,48 +11,33 @@ var USER_DATA = {
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-// var ProfilePic = React.createClass({
-// 	render: function () {
-// 		return <img src={this.props.imageUrl} style={{height: 100, width: 100}} />
-// 	}
-// })
+const SiteList = React.createClass({
+  render: function () {
+    console.log('this.props.site_list: ', this.props.site_list)
+    const list = this.props.site_list.map(site => {
+      return (
+        <li><SiteCard data={site} /></li>
+      )
+    })
+    // debugger;
+    return (
+      <ul>
+        {list}
+      </ul>
+     
+    )
+  }
+})
 
-// var ProfileLink = React.createClass({
-// 	render: function () {
-// 		return (
-// 			<div>
-// 			  <a href={'https://github.com/' + this.props.username}>
-// 			    {this.props.username}
-//               </a>
-//             </div>
-
-// 			)
-// 	}
-// });
-
-// var ProfileName = React.createClass({
-// 	render: function () {
-// 		return (
-// 			<div>{this.props.name}</div>
-// 	    )
-// 	}
-// });
-
-// var Avatar = React.createClass({
-// 	render: function () {
-// 		return (
-//           <div>
-//             <ProfilePic imageUrl={this.props.user.image} />
-//             <ProfileName name={this.props.user.name} />
-//             <ProfileLink username={this.props.user.username} />
-//           </div>
-
-// 		)
-// 	}
-// })
 
 ReactDOM.render(
-  <Avatar user={USER_DATA} />,
-  document.getElementById('app')
+  <Avatar user={AvatarData} />,
+  document.getElementById('avatar_test')
 );
+
+ReactDOM.render(
+  <SiteList site_list={SiteData} />,
+  document.getElementById('site_card_test')
+);
+
 
