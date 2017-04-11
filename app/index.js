@@ -25,7 +25,6 @@ const SiteList = React.createClass({
   },
 
   renderSiteList: function() {
-    console.log("modal data: ", this.state)
     const list = this.state.sites.map((site, index) => {
       return (
         <li key={index} onClick={()=> this.openModal(index)}><SiteCard data={site}/></li>
@@ -48,7 +47,8 @@ const SiteList = React.createClass({
           contentLabel="Modal" 
           className="site_modal"
           overlayClassName="modal_overlay">
-          <SiteDetail data={this.state.modalData} />
+          <SiteDetail data={this.state.modalData} close={this.closeModal} />
+          <a className="close_modal" onClick={this.closeModal} href="">CLOSE</a>
         </Modal>
       </div>
     );
