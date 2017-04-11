@@ -14,12 +14,13 @@ const ModalStyles = {
     right: '40px',
     bottom: '40px',
     border:'1px solid #ccc',
-    background:'#fff',
+    background:'#00E06E',
     overflow:'auto',
     WebkitOverflowScrolling:'touch',
     borderRadius:'4px',
     outline:'none',
-    padding:'20px'
+    padding:'0',
+    height: '300px'
   }
 };
 

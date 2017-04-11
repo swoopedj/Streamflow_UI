@@ -42,7 +42,12 @@ const SiteList = React.createClass({
     return (
       <div>
         {this.renderSiteList()}
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} contentLabel="Modal" style={ModalStyles}>
+        <Modal 
+          isOpen={this.state.modalIsOpen} 
+          onRequestClose={this.closeModal} 
+          contentLabel="Modal" 
+          className="site_modal"
+          overlayClassName="modal_overlay">
           <SiteDetail data={this.state.modalData} />
         </Modal>
       </div>

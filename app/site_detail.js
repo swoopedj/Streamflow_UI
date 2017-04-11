@@ -9,7 +9,10 @@ var React = require('react');
 var TitleBar = React.createClass({
   render: function() {
     return (
-    <span>{this.props.site_name}</span>
+      <div className="title_bar">
+        <span>{this.props.site_name}</span>
+        <span className="site_id">{this.props.site_id}</span>
+      </div>
     )
   }
 })
@@ -54,8 +57,8 @@ var ShowGraph = React.createClass({
 var SiteDetail = React.createClass({
   render: function () {
     return (
-        <div className="site_detail site_modal">
-          <TitleBar site_name={this.props.data.site_name} />
+        <div className="site_detail">
+          <TitleBar site_name={this.props.data.site_name} site_id={this.props.data.site_id} />
           <CurrentConditions gage_height={this.props.data.gage_height} />
           <SiteInfo lat={this.props.data.latitude} long={this.props.data.longitude} />
           <ShowGraph />

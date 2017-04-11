@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Streamflow UI</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css' />
   <style>
     .test_div {
       margin: 15px;
@@ -16,6 +16,10 @@
     }
     a {
       text-decoration: none;
+    }
+    ul {
+      list-style:none;
+      padding-left:0;
     }
     .site_card {
       background-color: #40A4DF;
@@ -35,10 +39,6 @@
       font-size: 24px;
       display: inline-block;
     }
-    .site_id {
-      color: #dddddd;
-      display: inline;
-    }
     .data_label {
       float: right;
       display: inline-block;
@@ -54,8 +54,34 @@
       display: inline;
       margin-left: 12px;
     }
+    .modal_overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color:rgba(255, 255, 255, 0.75);
+    }
+    .site_modal {
+      width: 50%;
+      margin: 0 auto;
+      margin-top: 5%;
+      border-radius: 2px;
+    }
     .site_detail {
       background-color: #00E06E;
+    }
+    .title_bar {
+      background-color: #007C3D;
+      font-size: 24px;
+      color: #ffffff;
+      padding: 5px;
+
+    }
+    .title_bar > .site_id {
+      color: #dddddd;
+      display: inline;
+      float: right;
     }
   </style>
 </head>
