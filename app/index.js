@@ -1,34 +1,36 @@
 import SiteData from './models/site_list_data.js';
 import SiteCard from './site_card.js';
 import SiteDetail from './site_detail.js';
+import '../public/style.css'
 import Modal from 'react-modal';
-import ModalStyles from './modal_styles.js'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var React = require('react');
-var ReactDOM = require('react-dom');
+class SiteList extends React.Component{
 
-const SiteList = React.createClass({
-  getInitialState: function() {
-    return { 
+  constructor(props) {
+    super(props);
+    this.state = {
       modalIsOpen: false,
       modalData: null,
       sites: this.props.site_list
-    };
-  },
+    }
+  }
  
-  openModal: function(i) {
+  openModal(i) {
     this.setState({modalIsOpen: true, modalData: this.state.sites[i]});
-  },
+  }
  
-  closeModal: function() {
+  closeModal() {
     this.setState({modalIsOpen: false});
-  },
+  }
 
-  renderSiteList: function() {
-    console.log("modal data: ", this.state)
+  renderSiteList() {
     const list = this.state.sites.map((site, index) => {
       return (
-        <li key={index} onClick={()=> this.openModal(index)}><SiteCard data={site}/></li>
+        <li key={index} onClick={() => this.openModal(index)}>
+          <SiteCard data={site} />
+        </li>
       )
     })
     return (
@@ -36,9 +38,9 @@ const SiteList = React.createClass({
         {list}
       </ul>
     );
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div>
         {this.renderSiteList()}
@@ -48,12 +50,13 @@ const SiteList = React.createClass({
           contentLabel="Modal" 
           className="site_modal"
           overlayClassName="modal_overlay">
-          <SiteDetail data={this.state.modalData} />
+          <SiteDetail data={this.state.modalData} close={this.closeModal} />
+          <a className="close_modal" onClick={this.closeModal} href="">CLOSE</a>
         </Modal>
       </div>
     );
   }
-})
+}
 
 
 ReactDOM.render(

@@ -1,45 +1,35 @@
-var React = require('react');
+import React, {Component} from 'react';
 
-var SiteName = React.createClass({
-  render: function () {
+class SiteName extends React.Component {
+  render() {
     return (
         <div className="site_name">
           <span>{this.props.site_name}</span>
         </div>
       )
   }
-})
+}
 
-// var SiteId = React.createClass({
-//   render: function () {
-//     return (
-//         <div className="site_id">
-//           <span>{this.props.site_id}</span>
-//         </div>
-//       )
-//   }
-// })
-
-var GageHeight = React.createClass({
-  render: function () {
+class GageHeight extends React.Component {
+  render() {
     return (
           <span className="g_height">{this.props.gage_height}</span>
       )
   }
-})
+}
 
-var Distance = React.createClass({
-  render: function () {
+class Distance extends React.Component {
+  render() {
     return (
         <div className="site_distance">
           <span>({this.props.distance} mi)</span>
         </div>
       )
   }
-})
+}
 
-var SiteCard = React.createClass({
-  render: function () {
+class SiteCard extends React.Component {
+  render() {
     return (
       <a href={this.props.data.detail_link}>
         <div className="site_card">
@@ -50,6 +40,6 @@ var SiteCard = React.createClass({
       </a>
     )
   }
-})
+}
 
 export default SiteCard
